@@ -3,13 +3,13 @@ import { Runner } from "near-runner"
 
 // 1. Create testing accounts and deploy a contract
 async function initRunner() {
-  return await Runner.create(async ({ runtime }) => ({
-    contract: await runtime.createAndDeploy(
+  return await Runner.create(async ({ root }) => ({
+    contract: await root.createAndDeploy(
       'status-message',
       "./res/status_message.wasm"
     ),
-    alice: await runtime.createAccount('alice'),
-    bob: await runtime.createAccount('bob'),
+    alice: await root.createAccount('alice'),
+    bob: await root.createAccount('bob'),
   }))
 }
 
